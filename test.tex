@@ -1,19 +1,33 @@
-\documentclass[12pt, letterpaper]{article}
-\usepackage{graphicx} %LaTeX package to import graphics
-\graphicspath{{images/}} %configuring the graphicx package
+\documentclass[12pt, letterpaper, spanish]{article}
+
+\usepackage{hyperref} % para manejar hipervinculos
+\usepackage[spanish]{babel} % Para palabras en espanhol
+\usepackage{graphicx} % LaTeX package to import graphics
+\graphicspath{{images/}} % configuring the graphicx package
+\usepackage[spanish]{babel} % para que LaTeX corte palabras
+\usepackage[dvipsnames]{xcolor} % color en el texto
 % todo lo que este antes del \begin{document} es un preamble
-\title{Redes neuronales}
-\author{Alain Vega \thanks{Universidad Catolica}}
-\date{2 octubre 2023}
 \begin{document}
-\maketitle % agrega el preamble al cuerpo
-Some of the \textbf{greatest}
-discoveries in \underline{science}
-were made by \textbf{\textit{accident}}.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.75\textwidth]{ucalogo}
-    \caption{Logo de la Universidad Catolica}
-    \label{fig:mesh1}
-\end{figure}
+% portada
+\begin{titlepage}
+\begin{center}
+    \Large{Universidad Catolica "Nuestra señora de la Asuncion" \\
+    Facultad de ciencias y tecnologia \\
+    Departamento de electronica e informatica}
+    \includegraphics[width=0.8\textwidth]{UcaLogo.jpg}
+    \begin{center}
+        \LARGE{\textbf{Redes neuronales}}
+    \end{center} 
+    \Large{Trabajo investigativo - TAI 2}
+    \vspace{1cm}
+\end{center}
+    \large
+    \textbf{Alumno: }Alain Vega \\
+    \textbf{Profesor: }Ing. Juan E. de Urraza
+    \vfill
+    \hfill{02 de octubre de 2023}
+\end{titlepage}
+
+\newpage
+
 \end{document}
