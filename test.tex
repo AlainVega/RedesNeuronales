@@ -1,10 +1,21 @@
-\documentclass[runningheads]{llncs}
-\usepackage[spanish]{babel}
-\usepackage{graphicx}
-% If you use the hyperref package, please uncomment the following line
-% to display URLs in blue roman font according to Springer's eBook style:
-% \renewcommand\UrlFont{\color{blue}\rmfamily}
-\usepackage[T1]{fontenc}
+\documentclass[runningheads]{llncs} % template "Lecture notes for computer science"
+\usepackage[spanish]{babel} % para el texto en espanhol
+\usepackage{graphicx} % para imaganes
+\usepackage{hyperref} % para los hipervinculos
+\usepackage{xurl} % para el line braker de los url
+\usepackage{xcolor} % para definir colores custom
+% \definecolor{royalblue(web)}{rgb}{0.25, 0.41, 0.88}
+% \definecolor{royalblue(traditional)}{rgb}{0.0, 0.14, 0.4} no funca
+\hypersetup{ % configuracion de los hiper vinculos
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor=black, % ver si poner en blue o dejar asi
+    pdftitle={Redes neuronales},
+    pdfpagemode=FullScreen,
+}
+\usepackage[T1]{fontenc} % para la codificacion de la fuente.
 
 \begin{document}
 
@@ -32,8 +43,8 @@ Departamento de electronica e informatica \\
 %
 \begin{abstract}
 Una de las tendencias ultimamente son las redes neuronales. En este documento
-se muestran conceptos claves sobre esta tecnica y una significativa variedad
-de ejemplos sobre aplicaciones recientes de la misma.
+se muestran conceptos claves sobre este modelo y una significativa variedad
+de ejemplos sobre aplicaciones recientes del mismo.
 
 \keywords{Redes neuronales \and Inteligencia artificial \and Aprendizaje automatico
 \and Aprendizaje profundo. \and Neural networks \and Artificial inteligence 
@@ -43,14 +54,32 @@ de ejemplos sobre aplicaciones recientes de la misma.
 % CONTENIDO
 % =================================================================================
 \section{Introduccion}
+Si hace unos años, nos hubieran dicho que una máquina sería capaz de aprender 
+por sí sola y tomar decisiones basadas en esa experiencia, ¿te lo habrías creído? 
+¿Y si además te hubieran dicho que un conjunto de algoritmos serían capaces de
+hacer funciones consideradas \textquotedblleft{humanas}\textquotedblright{}
+como crear arte o componer melodías únicas? \cite{ref_url1}
+
+Todo esto es ya una realidad, por ello ultimamente la Inteligencia artificial 
+esta en boca de todos, pero es gracias a las \textbf{redes neuronales}
+que todo esto es posible. 
+
+Estas redes alcanzan metas bastante impresionantes y que cada vez se acercan 
+más a esa idea original de reproducir el funcionamiento del cerebro humano 
+en una computadora. 
+
+Ahora bien, ¿en qué consisten estos modelos? ¿Cómo puede imitar un computadora 
+el proceso de aprendizaje y acabar desarrollando una
+\textquotedblleft{cosa}\textquotedblright{} que funciona? \cite{ref_url2}
 \section{Definiciones y conceptos}
-\subsection{Que es una red neuronal?}
+\subsection{¿Que es una red neuronal?}
+
 \subsection{Tipos de Redes neuronales}
 \subsection{AI vs ML vs NN vs DL}
 \section{Conocimiento}
-\subsection{Como aprenden estas redes?}
+\subsection{¿Como aprenden estas redes?}
 \subsubsection{Propagacion hacia atras}
-\subsection{Representa como aprendemos los humanos?}
+\subsection{¿Representa como aprendemos los humanos?}
 \section{Aplicaciones}
 \subsection{Ejemplo1}
 \subsection{Ejemplo2}
@@ -115,11 +144,11 @@ For citations of references, we prefer the use of square brackets
 and consecutive numbers. Citations using labels or the author/year
 convention are also acceptable. The following bibliography provides
 a sample reference list with entries for journal
-articles~\cite{ref_article1}, an LNCS chapter~\cite{ref_lncs1}, a
-book~\cite{ref_book1}, proceedings without editors~\cite{ref_proc1},
-and a homepage~\cite{ref_url1}. Multiple citations are grouped
-\cite{ref_article1,ref_lncs1,ref_book1},
-\cite{ref_article1,ref_book1,ref_proc1,ref_url1}.
+% articles~\cite{ref_article1}, an LNCS chapter~\cite{ref_lncs1}, a
+% book~\cite{ref_book1}, proceedings without editors~\cite{ref_proc1},
+% and a homepage~\cite{ref_url1}. Multiple citations are grouped
+% \cite{ref_article1,ref_lncs1,ref_book1},
+% \cite{ref_article1,ref_book1,ref_proc1,ref_url1}.
 %
 % ---- Bibliography ----
 %
@@ -129,25 +158,39 @@ and a homepage~\cite{ref_url1}. Multiple citations are grouped
 % \bibliographystyle{splncs04}
 % \bibliography{mybibliography}
 %
-\begin{thebibliography}{8}
-\bibitem{ref_article1}
-Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
+%
+% Huet, Pablo. “Que Son Las Redes Neuronales y Sus Aplicaciones.” 
+% Qué son las redes neuronales y sus aplicaciones, April 13, 2023. 
+% https://openwebinars.net/blog/que-son-las-redes-neuronales-y-sus-aplicaciones/. 
+%
 
-\bibitem{ref_lncs1}
-Author, F., Author, S.: Title of a proceedings paper. In: Editor,
-F., Editor, S. (eds.) CONFERENCE 2016, LNCS, vol. 9999, pp. 1--13.
-Springer, Heidelberg (2016). \doi{10.10007/1234567890}
-
-\bibitem{ref_book1}
-Author, F., Author, S., Author, T.: Book title. 2nd edn. Publisher,
-Location (1999)
-
-\bibitem{ref_proc1}
-Author, A.-B.: Contribution title. In: 9th International Proceedings
-on Proceedings, pp. 1--2. Publisher, Location (2010)
-
+\begin{thebibliography}{99}
 \bibitem{ref_url1}
-LNCS Homepage, \url{http://www.springer.com/lncs}. Last accessed 4
-Oct 2017
+Pablo Huet - OpenWebinars: Qué son las redes neuronales y sus aplicaciones, 
+\url{https://openwebinars.net/blog/que-son-las-redes-neuronales-y-sus-aplicaciones/}. 
+
+\bibitem{ref_url2}
+Guillermo Julian - xataka: Las redes neuronales: qué son y por qué están volviendo
+\url{https://www.xataka.com/robotica-e-ia/las-redes-neuronales-que-son-y-por-que-estan-volviendo}
+
+% \bibitem{ref_article1}
+% Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
+
+% \bibitem{ref_lncs1}
+% Author, F., Author, S.: Title of a proceedings paper. In: Editor,
+% F., Editor, S. (eds.) CONFERENCE 2016, LNCS, vol. 9999, pp. 1--13.
+% Springer, Heidelberg (2016). \doi{10.10007/1234567890}
+
+% \bibitem{ref_book1}
+% Author, F., Author, S., Author, T.: Book title. 2nd edn. Publisher,
+% Location (1999)
+
+% \bibitem{ref_proc1}
+% Author, A.-B.: Contribution title. In: 9th International Proceedings
+% on Proceedings, pp. 1--2. Publisher, Location (2010)
+
+% \bibitem{ref_url1}
+% LNCS Homepage, \url{http://www.springer.com/lncs}. Last accessed 4
+% Oct 2017
 \end{thebibliography}
 \end{document}
