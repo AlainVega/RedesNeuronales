@@ -1,6 +1,7 @@
 \documentclass[runningheads]{llncs} % template "Lecture notes for computer science"
 \usepackage[spanish]{babel} % para el texto en espanhol
 \usepackage{graphicx} % para imaganes
+\graphicspath{{images/}} % ruta a la carpta de imagenes
 \usepackage{hyperref} % para los hipervinculos
 \usepackage{xurl} % para el line braker de los url
 \usepackage{xcolor} % para definir colores custom
@@ -8,14 +9,18 @@
 % \definecolor{royalblue(traditional)}{rgb}{0.0, 0.14, 0.4} no funca
 \hypersetup{ % configuracion de los hiper vinculos
     colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
+    linkcolor=black,
+    filecolor=black,      
     urlcolor=blue,
     citecolor=black, % ver si poner en blue o dejar asi
     pdftitle={Redes neuronales},
     pdfpagemode=FullScreen,
 }
 \usepackage[T1]{fontenc} % para la codificacion de la fuente.
+\usepackage[backend=biber,style=numeric]{biblatex} % para la bibliografia.
+\addbibresource{bibliografia.bib} % incluir el .bib
+\usepackage{csquotes} % para que los textos citados esten con tipografia de acuerdo con las reglas de csquotes
+% \usepackage{amssymb} % simbolos matematicos
 
 \begin{document}
 
@@ -30,7 +35,7 @@
 %
 \author{Alain Vega \\ \email{alainjosevz@gmail.com}}
 %
-\authorrunning{F. Author et al.}
+\authorrunning{Alain Vega}
 % First names are abbreviated in the running head.
 % If there are more than two authors, 'et al.' is used.
 %
@@ -48,7 +53,8 @@ de ejemplos sobre aplicaciones recientes del mismo.
 
 \keywords{Redes neuronales \and Inteligencia artificial \and Aprendizaje automatico
 \and Aprendizaje profundo. \and Neural networks \and Artificial inteligence 
-\and Machine learning \and Deep learning \and AI \and ML \and NN \and DL}
+\and Machine learning \and Deep learning \and AI \and ML \and NN \and ANN 
+\and SNN \and DL}
 \end{abstract}
 % =================================================================================
 % CONTENIDO
@@ -58,10 +64,10 @@ Si hace unos años, nos hubieran dicho que una máquina sería capaz de aprender
 por sí sola y tomar decisiones basadas en esa experiencia, ¿te lo habrías creído? 
 ¿Y si además te hubieran dicho que un conjunto de algoritmos serían capaces de
 hacer funciones consideradas \textquotedblleft{humanas}\textquotedblright{}
-como crear arte o componer melodías únicas? \cite{ref_url1}
+como crear arte o componer melodías únicas? \cite{int1}
 
-Todo esto es ya una realidad, por ello ultimamente la Inteligencia artificial 
-esta en boca de todos, pero es gracias a las \textbf{redes neuronales}
+Todo esto es ya una realidad, por ello ultimamente la Inteligencia artificial (AI) 
+esta en boca de todos, pero es gracias a las \textbf{redes neuronales} (NN)
 que todo esto es posible. 
 
 Estas redes alcanzan metas bastante impresionantes y que cada vez se acercan 
@@ -70,9 +76,83 @@ en una computadora.
 
 Ahora bien, ¿en qué consisten estos modelos? ¿Cómo puede imitar un computadora 
 el proceso de aprendizaje y acabar desarrollando una
-\textquotedblleft{cosa}\textquotedblright{} que funciona? \cite{ref_url2}
+\textquotedblleft{cosa}\textquotedblright{} que funciona? \cite{int2}
 \section{Definiciones y conceptos}
 \subsection{¿Que es una red neuronal?}
+Una red neuronal, tambien conocida como red neuronal artificial (ANN)
+o red neuronal simulada (SNN), es un modelo de \textit{machine learning} (ML)
+el cual constituye el eje de los algoritmos de \textit{deep learning} (DL) 
+
+Su nombre y estructura se inspiran en el cerebro humano, 
+e imitan la forma en la que las neuronas biológicas se señalan entre sí.
+
+Las redes neuronales artificiales (ANN) están formadas por capas de nodos, 
+que contienen una capa de entrada, una o varias capas ocultas y una capa de salida.
+\cite{def-ibm1}
+
+Donde cada nodo se conoce como una neurona artificial, esta se conecta a 
+otra neurona (nodo) la capa hace referencia a conjunto de nodos (neuronas).
+
+\subsection{Estructura basica de una red neuronal}
+\subsubsection{Analogia con el cerebro}
+La neurona es la unidad fundamental del sistema nervioso y en particular 
+del cerebro. Cada neurona es una simple unidad procesadora que recibe y combina 
+señales desde y hacia otras neuronas. 
+Si la combinación de entradas es suficientemente fuerte la salida de la neurona
+se activa. \cite{libro-def}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{neurona_real.png}
+    \caption{Componentes de una reurona real}
+    \label{fig:neurona_real}
+\end{figure}
+
+El cerebro consiste en uno o varios billones de neuronas densamente 
+interconectadas. Apoyandonos en la figura \ref{fig:neurona_real}.
+El axón (salida) de la neurona se ramifica y está conectada a las dendritas (entradas) 
+de otras neuronas a través de uniones llamadas sinapsis.
+La eficacia de la sinpasis es modificable durante el proceso de 
+aprendizaje de la red. \cite{libro-def}
+
+\subsubsection{Redes neuronales artificiales (ANN)}
+En las Redes Neuronales Artificiales, ANN, la unidad análoga a la neurona biológica es
+el elemento procesador, PE (\textit{Process Element}). Un elemento procesador tiene varias
+entradas y las combina, normalmente con una suma básica. La suma de las entradas es
+modificada por una función de transferencia y el valor de la salida de esta función de
+transferencia se pasa directamente a la salida del elemento procesador.
+
+La salida del PE se puede conectar a las entradas de otras neuronas artificiales (PE)
+mediante conexiones ponderadas correspondientes a la eficacia de la sinapsis de las
+conexiones neuronales. 
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{neurona_artificial2.png}
+    \caption{Diagrama de una neurona artificial con conceptos de una neurona real}
+    \label{fig:neurona_artificial}
+\end{figure}
+
+La Figura \ref{fig:neurona_artificial} muestra una neurona artificial con conceptos
+de una neurona real.
+La dendrita se representa como un enlace de entrada a la neurona.
+
+La sinapsis se representa como la union/fusion de un terminal del axon de una neurona
+con una dendrita de otra neurona. 
+
+En el cuerpo celular ocurren varias cosas, la primera es que gracias a sinapsis las
+entradas disponibles de cada una de las neuronas de la capa anterior llegan como el 
+producto \(x_{i}*w_{i}\), donde \(x_{i}\) es el resultado de una neurona 
+\textquotedblleft{anterior}\textquotedblright{} y \(w_{i}\) es el peso 
+\textquotedblleft{conectarse}\textquotedblright{} a la dendrita de nuestra neurona.
+La segunda es la sumatoria de cada entradas \(x_{i}*w_{i}\) y sumarle
+\(b\) que representa el bias/sesgo/umbral (el cual nos permite mover la funcion
+de activacion de manera horizontal).
+Por ulitmo toda la sumatoria del paso dos, se pasa a la funcion de activacion \(f\)
+esta puede lineal o no lineal, existen una amplia variedad de funciones de activacion.
+
+Finalmente transmite el resultado \(y = f(\sum_{i=1}^{n}{x_{i}*w_{i}} + b)\)
+suponiendo \textit{n} entradas
 
 \subsection{Tipos de Redes neuronales}
 \subsection{AI vs ML vs NN vs DL}
@@ -89,108 +169,7 @@ el proceso de aprendizaje y acabar desarrollando una
 \section{Conclusion}
 \section{Referencias maybe}
 
-\section{por si acaso}
-\subsection{A Subsection Sample}
-Please note that the first paragraph of a section or subsection is
-not indented. The first paragraph that follows a table, figure,
-equation etc. does not need an indent, either.
+\newpage
+\printbibliography
 
-Subsequent paragraphs, however, are indented.
-
-\subsubsection{Sample Heading (Third Level)} Only two levels of
-headings should be numbered. Lower level headings remain unnumbered;
-they are formatted as run-in headings.
-
-\paragraph{Sample Heading (Fourth Level)}
-The contribution should contain no more than four levels of
-headings. Table~\ref{tab1} gives a summary of all heading levels.
-
-\begin{table}
-\caption{Table captions should be placed above the
-tables.}\label{tab1}
-\begin{tabular}{|l|l|l|}
-\hline
-Heading level &  Example & Font size and style\\
-\hline
-Title (centered) &  {\Large\bfseries Lecture Notes} & 14 point, bold\\
-1st-level heading &  {\large\bfseries 1 Introduction} & 12 point, bold\\
-2nd-level heading & {\bfseries 2.1 Printing Area} & 10 point, bold\\
-3rd-level heading & {\bfseries Run-in Heading in Bold.} Text follows & 10 point, bold\\
-4th-level heading & {\itshape Lowest Level Heading.} Text follows & 10 point, italic\\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{figure}
-\caption{A figure caption is always placed below the illustration.
-Please note that short captions are centered, while long ones are
-justified by the macro package automatically.} \label{fig1}
-\end{figure}
-
-\begin{theorem}
-This is a sample theorem. The run-in heading is set in bold, while
-the following text appears in italics. Definitions, lemmas,
-propositions, and corollaries are styled the same way.
-\end{theorem}
-%
-% the environments 'definition', 'lemma', 'proposition', 'corollary',
-% 'remark', and 'example' are defined in the LLNCS documentclass as well.
-%
-\begin{proof}
-Proofs, examples, and remarks have the initial word in italics,
-while the following text appears in normal font.
-\end{proof}
-For citations of references, we prefer the use of square brackets
-and consecutive numbers. Citations using labels or the author/year
-convention are also acceptable. The following bibliography provides
-a sample reference list with entries for journal
-% articles~\cite{ref_article1}, an LNCS chapter~\cite{ref_lncs1}, a
-% book~\cite{ref_book1}, proceedings without editors~\cite{ref_proc1},
-% and a homepage~\cite{ref_url1}. Multiple citations are grouped
-% \cite{ref_article1,ref_lncs1,ref_book1},
-% \cite{ref_article1,ref_book1,ref_proc1,ref_url1}.
-%
-% ---- Bibliography ----
-%
-% BibTeX users should specify bibliography style 'splncs04'.
-% References will then be sorted and formatted in the correct style.
-%
-% \bibliographystyle{splncs04}
-% \bibliography{mybibliography}
-%
-%
-% Huet, Pablo. “Que Son Las Redes Neuronales y Sus Aplicaciones.” 
-% Qué son las redes neuronales y sus aplicaciones, April 13, 2023. 
-% https://openwebinars.net/blog/que-son-las-redes-neuronales-y-sus-aplicaciones/. 
-%
-
-\begin{thebibliography}{99}
-\bibitem{ref_url1}
-Pablo Huet - OpenWebinars: Qué son las redes neuronales y sus aplicaciones, 
-\url{https://openwebinars.net/blog/que-son-las-redes-neuronales-y-sus-aplicaciones/}. 
-
-\bibitem{ref_url2}
-Guillermo Julian - xataka: Las redes neuronales: qué son y por qué están volviendo
-\url{https://www.xataka.com/robotica-e-ia/las-redes-neuronales-que-son-y-por-que-estan-volviendo}
-
-% \bibitem{ref_article1}
-% Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
-
-% \bibitem{ref_lncs1}
-% Author, F., Author, S.: Title of a proceedings paper. In: Editor,
-% F., Editor, S. (eds.) CONFERENCE 2016, LNCS, vol. 9999, pp. 1--13.
-% Springer, Heidelberg (2016). \doi{10.10007/1234567890}
-
-% \bibitem{ref_book1}
-% Author, F., Author, S., Author, T.: Book title. 2nd edn. Publisher,
-% Location (1999)
-
-% \bibitem{ref_proc1}
-% Author, A.-B.: Contribution title. In: 9th International Proceedings
-% on Proceedings, pp. 1--2. Publisher, Location (2010)
-
-% \bibitem{ref_url1}
-% LNCS Homepage, \url{http://www.springer.com/lncs}. Last accessed 4
-% Oct 2017
-\end{thebibliography}
 \end{document}
