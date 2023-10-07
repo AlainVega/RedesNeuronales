@@ -1,12 +1,10 @@
 \documentclass[runningheads]{llncs} % template "Lecture notes for computer science"
 \usepackage[spanish]{babel} % para el texto en espanhol
-\usepackage{graphicx} % para imaganes
-\graphicspath{{images/}} % ruta a la carpta de imagenes
+\usepackage{graphicx} % para incluir imagenes, graficos, etc.
+\graphicspath{{images/}} % ruta a la carpeta de imagenes
 \usepackage{hyperref} % para los hipervinculos
-\usepackage{xurl} % para el line braker de los url
+\usepackage{xurl} % para el line breaker de los url
 \usepackage{xcolor} % para definir colores custom
-% \definecolor{royalblue(web)}{rgb}{0.25, 0.41, 0.88}
-% \definecolor{royalblue(traditional)}{rgb}{0.0, 0.14, 0.4} no funca
 \hypersetup{ % configuracion de los hiper vinculos
     colorlinks=true,
     linkcolor=black,
@@ -19,8 +17,10 @@
 \usepackage[T1]{fontenc} % para la codificacion de la fuente.
 \usepackage[backend=biber,style=numeric]{biblatex} % para la bibliografia.
 \addbibresource{bibliografia.bib} % incluir el .bib
+\setcounter{biburlnumpenalty}{9000} % Para el line breaker en URL con numeros (que tambien afecta a la bibliografia)
+\setcounter{biburllcpenalty}{9000} % Para el line breaker en URL con letras minuculas (que tambien afecta a la bibliografia)
+\setcounter{biburlucpenalty}{9000} % Para el line breaker en URL con letras mayusculas (que tambien afecta a la bibliografia)
 \usepackage{csquotes} % para que los textos citados esten con tipografia de acuerdo con las reglas de csquotes
-% \usepackage{amssymb} % simbolos matematicos
 \usepackage{amsmath}
 
 \begin{document}
