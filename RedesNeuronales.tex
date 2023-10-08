@@ -54,7 +54,7 @@ de ejemplos sobre aplicaciones recientes del mismo.
 
 \keywords{Redes neuronales \and Inteligencia artificial \and Machine learning
 \and Deep learning \and AI \and ML \and NN \and ANN \and SNN \and RNN 
-\and CNN \and DL}
+\and CNN \and GAN \and DL}
 \end{abstract}
 % =================================================================================
 % CONTENIDO
@@ -202,14 +202,6 @@ Necesita de un valor umbral \(\xi\) que decide cuando la neurona artificial debe
     \right .
 \]
 
-
-% Por motivos de simplicidad desde este punto hasta el final del documento, 
-% cada vez que aparezca la frase \textquotedblleft{red neuronal}\textquotedblright{} y 
-% \textquotedblleft{neuronal}\textquotedblright{}
-% se hace referencia a la \textquotedblleft{red neuronal artificial}\textquotedblright{} y 
-% a la \textquotedblleft{neuronal artificial}\textquotedblright{} respectivamente,
-% se precisara cuando se hable de una neurona real.
-
 \subsubsection{Funciones de activacion lineales}
 Tambien conocida como \textquotedblleft{}sin activacion\textquotedblright{} 
 donde la activacion es proporcional a la entrada. \cite{fun-activacion2} \\
@@ -243,11 +235,55 @@ Las principales son:
     \cite{fun-softmax}
 \end{itemize}
 
-\subsection{Tipos de Redes neuronales}
-\subsection{AI vs ML vs NN vs DL}
 \section{Conocimiento}
 \subsection{¿Como aprenden estas redes?}
-\subsubsection{Propagacion hacia atras}
+En el ciclio de vida de una ANN hay en general dos fases, las cuales son 
+la fase de entrenamiento y la fase de pruebas. El proceso de determinar
+los pesos y los sesgos (\textit{bias}) ocurren en la fase de entrenamiento. 
+\cite{backpropagation}
+
+Si el lector indaga sobre redes neuronales, encontrará dos términos esenciales 
+que describen el movimiento de información a traves de la red 
+\textbf{\textit{forward propagation}} y \textbf{\textit{back propagation}} \cite{fun-activacion}
+de forma breve significan: 
+
+\subsubsection{FowardPropagation:}
+tambien conocida como \textit{forward pass} hace referencia al calculo y
+almacenamiento de variables intermedias (incuyendo \textit{outputs}) para
+una ANN para una ANN en orden desde la capa de entrada hasta la capa de salida. 
+\cite{zhang2023dive}
+
+\subsubsection{BackPropagation:}
+se refiere al método de calcular el gradiente de los parámetros de la red neuronal. 
+En resumen, el método atraviesa la red en orden inverso, desde la capa de salida a 
+la de entrada, según la regla de la cadena del cálculo. 
+El algoritmo almacena las variables intermedias (derivadas parciales) 
+necesarias al calcular el gradiente con respecto a algunos parámetros.
+\cite{zhang2023dive}
+
+\subsubsection{Aprendizaje.}
+Que una ANN \textquotedblleft{}aprenda\textquotedblright{} significa que
+esta ajusta mejor sus parametros (pesos y sesgos).
+
+Entonces, ¿cómo obtienen las redes neuronales valores óptimos de peso y sesgo? 
+La respuesta es a través de un gradiente de error. \footnote[1]{Recientemente
+se exploraron mas alternarivas debidos a problemas bien conocidos. \cite{alternativasBP}} 
+Lo que queremos saber al fijar 
+el peso y el sesgo actuales ¿necesitamos disminuir o aumentar nuestro valor actual?
+es si los valores de peso y sesgo actuales son demasiado grandes o demasiado pequeños
+(¿necesitamos disminuir o aumentar nuestro valor actual?) con respecto a su valor optimo? 
+Y cuánto se desvía (¿ cuánto necesitamos disminuir o aumentar nuestro valor actual?) 
+de sus valores óptimos. El gradiente que buscamos son las derivadas del error 
+con respecto a ponderaciones y sesgos.\cite{backpropagation}
+
+¿Porqué es eso? porque queremos saber cómo nuestros pesos y sesgos actuales afectan 
+el valor del error de la red neuronal como referencia para responder 2 preguntas 
+en el párrafo superior (disminuir o aumentar y cuánto). La forma en que obtenemos el valor 
+del gradiente es a través de un algoritmo bien conocido llamado \textit{back propagation}. 
+La forma en que utilizamos el gradiente que se obtuvo mediante \textit{back propagation} 
+para mejorar el valor de peso y los sesgos es a través de un algoritmo de optimización.
+\cite{backpropagation}
+
 \subsection{¿Representa como aprendemos los humanos?}
 Si bien las redes neuronales estan inspiradas en el cerebro humano, ¿esto significa 
 que estas redes pueden verse como un cerebro humano simulado?, estudios recientes sugieren 
@@ -528,6 +564,9 @@ A continuacion van ejemplos que muestran el impacto de dlss3 en los fps.
 \section{Conclusion}
 
 \newpage
+% =================================================================================
+% Bibliografia
+% =================================================================================
 \printbibliography
 
 \end{document}
