@@ -52,10 +52,9 @@ Una de las tendencias ultimamente son las redes neuronales. En este documento
 se muestran conceptos claves sobre este modelo y una significativa variedad
 de ejemplos sobre aplicaciones recientes del mismo.
 
-\keywords{Redes neuronales \and Inteligencia artificial \and Aprendizaje automatico
-\and Aprendizaje profundo. \and Neural networks \and Artificial inteligence 
-\and Machine learning \and Deep learning \and AI \and ML \and NN \and ANN 
-\and SNN \and DL}
+\keywords{Redes neuronales \and Inteligencia artificial \and Machine learning
+\and Deep learning \and AI \and ML \and NN \and ANN \and SNN \and RNN 
+\and CNN \and DL}
 \end{abstract}
 % =================================================================================
 % CONTENIDO
@@ -251,10 +250,245 @@ Las principales son:
 \subsubsection{Propagacion hacia atras}
 \subsection{¿Representa como aprendemos los humanos?}
 \section{Aplicaciones}
-\subsection{Ejemplo1}
-\subsection{Ejemplo2}
-\subsection{Ejemplo3}
-\subsection{Ejemplo4}
+\subsection{ChatGPT}
+Es una de las aplicaciones recientes mas reconocidas, ya casi no necesita presentacion.
+Su exito fue tan grande que empresas como Google o Microsoft apresuraron sus proyectos
+\textit{Bard} y \textit{Bing} respectivamente.
+
+ChatGPT (\textit{Generative Pre-trained Transformer}) es un procesador del lenguaje natural
+desarrollada por OpenAI, es un modelo hermano de InstructGPT, que esta capacitado
+para seguir una instruccion en un mensaje y proporcionar una respuesta detallada.
+\cite{ej-chatgpt}
+\subsubsection{¿Como funciona?}
+Se entrena el modelo utilizando \textit{Reinforcement Learning from Human Feedback}, 
+(RLHF) es decir el aprendizaje por refuerzo a partir de la retroalimentacion humana,
+similar a su hermano InstructGPT pero con ligeras diferencias en la configuracion de
+recopilacion de datos. \cite{ej-chatgpt}
+
+Se entrena un modelo inicial mediante ajustes supervisados: los entrenadores humanos
+de la AI proporcionan conversaciones en las que juegan de ambos lados: el usuario
+y un asistente de AI. Se les da a los capacitadores acceso a sugerencias escritas
+por modelos para ayudarlos a redactar sus respuestas. 
+Se mezcla este nuevo conjunto de datos de diálogo con el conjunto de datos de InstructGPT, 
+el cual transforman en un formato de diálogo. \cite{ej-chatgpt}
+
+Para crear un modelo de recompensa para el aprendizaje por refuerzo, 
+se necesita recopilar datos comparativos, que consisten en dos o más respuestas 
+del modelo clasificadas por calidad. Para recopilar estos datos, se toman conversaciones 
+que los entrenadores de IA tuvieron con el chatbot. Seleccionan al azar un mensaje 
+escrito por un modelo, prueban varias alternativas de finalización y se pide a los 
+entrenadores de IA que las clasifiquen. Usando estos modelos de recompensa, 
+ajustan el modelo usando la Optimización de Política Proximal (la cual es
+una nueva clase de algoritmos de aprendizaje por refuerzo, que funcionan de manera
+comparable o mejor que los enfoques actuales y, al mismo tiempo, son mucho mas
+simples de implementar y ajustar \cite{def-PPO})
+
+Realizan varias iteraciones de este proceso. \cite{ej-chatgpt}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{ChatGPT_Diagram.jpg}
+    \caption{Diagrama del metodo de entrenamiento
+    para ChatGPT \cite{ej-chatgpt}}
+    \label{fig:chatgpt-diagrama}
+\end{figure}
+
+Aqui van unos ejemplos de consultas a ChatGPT, el lector puede probarlo por
+el mismo en el siguiente enlace: 
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{ej1-chatgpt.png}
+    \caption{Ejemplo de consulta sobre corrector ortografico de español
+    para LaTeX}
+    \label{fig:chatgpt-ej1}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{ej2-chatgpt.png}
+    \caption{Ejemplo de consulta donde se le pide que enseñe el 
+    lenguaje de programacion Go}
+    \label{fig:chatgpt-ej2}
+\end{figure}
+
+\subsection{DALL-E}
+De los mismos creadores de ChatGPT (OpenAI) DALL-E es otro caso de exito que muy
+probablemente el lector ya lo conozca. Se trata  de una de las AI que comenzaron
+esta revolucion de generar imagenes, junto a otras como \textit{Stable Diffusion}
+y \textit{MidJourney}. \cite{dalle-xtaka}
+
+DALL-E es un sistema de AI que tiene la capacidad de crear imagenes realistas y arte
+dada una descripcion en lenguaje natural. \cite{ej-dalle}
+
+\subsubsection{¿Como funciona?}
+DALL-E fue creada al entrenar una red neuronal con imagenes y su descripcion en lenguaje
+natural, a traves del DL no solo comprende objetos individuales sino que tambien aprende 
+de las relaciones entre objetos. \cite{ej-dalle}
+
+DALL-E utiliza lo que se llama un modelo de difusión, que son esos sistemas 
+de inteligencia artificial capaces de crear imágenes de la nada. 
+En este proceso de creación, aprende de las estructuras latentes de los datos 
+para entrenarse para eliminar el ruido gaussiano de imágenes borrosas, 
+que son esas pequeñas distorsiones que pueden generarse en este tipo de AI. 
+\cite{dalle-xtaka}
+
+Su proceso de creación se puede resumir en tres pasos. 
+Primero, codifica y entiende el texto que le has escrito en el prompt 
+distingue los diferentes rasgos, características y estilos que has pedido que dibuje.
+Luego, DALL-E crea información de imagen a partir de esta petición, y finalmente 
+utiliza un decodificador que pinta la imagen partiendo de ese texto. \cite{dalle-xtaka}
+
+Aqui van unos ejemplos de lo que se puede hacer con DALL-E:
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.19]{ej1-dalle.jpg}
+    \caption{Ejemplo de generacion de imagen: un astronauta montando un
+    caballo con estilo fotorealistico \cite{ej-dalle}}
+    \label{fig:dalle-ej1}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{ej2.1-dalle.jpg}
+    \includegraphics[scale=0.2]{ej2.2-dalle.jpg}
+    \caption{Ejemplo de \textit{Outpainting}: agregar contexto a una
+    imagen \cite{ej-dalle}}
+    \label{fig:dalle-ej2}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{ej3.1-dalle.jpg}
+    \includegraphics[scale=0.2]{ej3.2-dalle.jpg}
+    \caption{Ejemplo de \textit{Inpainting} entrada: agrega un flamenco
+    al lado de la piscina \cite{ej-dalle}}
+    \label{fig:dalle-ej3}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{ej4.1-dalle_1.jpg}
+    \includegraphics[scale=0.2]{ej4.2-dalle_1.jpg}
+    \caption{Ejemplo de Variaciones de una imagen \cite{ej-dalle}}
+    \label{fig:dalle-ej4}
+\end{figure}
+
+\subsection{DeepFake}
+La tecnologia \textit{deepfake} es una tecnica que manipula imagenes o videos por medio del 
+\textit{deep learning}. El resultado es una imagen o video muy realista de un evento que nunca ocurrio.
+\cite{ej-deepfake2}
+
+Un \textit{deepfake} es una imagen o un vídeo falsificado digitalmente de una persona 
+que la hace parecer otra persona. Es el siguiente nivel de creación de contenido falso 
+que aprovecha la inteligencia artificial. \cite{ej-deepfake2}
+
+La gente empezó a tomar conciencia de la tecnología deepfake cuando un usuario de Reddit 
+llamado \textquotedblleft{}Deepfakes\textquotedblright{} publicó que había desarrollado
+un algoritmo de ML que podía transponer rostros de celebridades sin problemas
+a vídeos de contenido para adultos. \cite{ej-deepfake2}
+ 
+\subsubsection{¿Como funciona?}
+Un vídeo deepfake explota dos modelos de \textit{machine learning}. 
+Un modelo crea falsificaciones a partir de un conjunto de datos de vídeos de muestra, 
+mientras que el otro intenta detectar si el vídeo es realmente un fraude. 
+Cuando el segundo modelo ya no puede decir si el vídeo es falso, 
+el deepfake probablemente también sea lo suficientemente creíble para un 
+espectador humano. 
+Esta técnica se llama
+\textquotedblleft{}red generativa adversarial\textquotedblright{} (GAN). \cite{ej-deepfake2}
+
+Aqui van unos ejemplos:
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{ej1-deepfake.png}
+    \caption{Ejemplo de deepfake \cite{ej-deepfake3}}
+    \label{fig:deepfake-ej1}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{ej2-deepfake.png}
+    \caption{Ejemplo de deepfake \cite{ej-deepfake3}}
+    \label{fig:deepfake-ej2}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{ej3-deepfake.jpeg}
+    \caption{Ejemplo de deepfake \cite{img-deepfake}}
+    \label{fig:deepfake-ej3}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{ej4-deepfake.jpg}
+    \caption{Ejemplo de deepfake \cite{ej-deepfake1}}
+    \label{fig:deepfake-ej4}
+\end{figure}
+
+\subsection{Nvidia DLSS}
+DLSS (\textit{Deep Learning SuperSampling}) Es un tipo de técnica de 
+renderizado de video que busca aumentar la velocidad de cuadros por
+segundo, renderizando cuadros a una resolución más baja que la mostrada.
+
+El \textit{SuperSampling} hace
+referencia a un metodo \textit{anti-aliasing} que suaviza los bordes 
+irregulares que aparecen en los gráficos renderizados. 
+Sin embargo, a diferencia de otras formas de anti-aliasing, 
+SSAA (\textit{supersampling anti-aliasing}) funciona renderizando la imagen 
+a una resolución mucho más alta y usando esos datos para llenar 
+los espacios en la resolución nativa. \cite{ej-dlss}
+
+
+
+DLSS es el resultado de un proceso exhaustivo de enseñanza del algoritmo
+de inteligencia artificial de Nvidia para generar juegos más atractivos.
+Después de renderizar el juego a una resolución más baja, 
+DLSS infiere información de su base de conocimientos de entrenamiento 
+de imágenes de superresolución para generar una imagen que todavía 
+parece estar ejecutándose a una resolución más alta. 
+La idea es hacer que los juegos renderizados a 1440p parezcan 
+ejecutarse en 4K o que los juegos a 1080p parezcan 1440p. \cite{ej-dlss}
+
+\subsubsection{¿Como funciona?}
+La NN recibe dos entradas: 
+\begin{itemize}
+    \item{Imagenes aliased de baja resolucion generadas por el motor del
+    juego}
+    \item{En baja resolucion, vectores de movimiento de las mismas imagenes,
+    tambien generados por el motor del juego.}
+\end{itemize}
+
+En este enfoque, los vectores de movimiento sirven para indicar la dirección 
+en la que los objetos de una escena se desplazan de un cuadro a otro. 
+Estos vectores se aplican nuevamente a la salida de alta resolución 
+del cuadro anterior para prever cómo se visualizará en el próximo cuadro. 
+Este procedimiento se denomina "Retroalimentación Temporal" porque utiliza 
+la información pasada para anticipar eventos futuros. 
+En el transcurso del aprendizaje, la imagen generada se compara con una 
+imagen pre-renderizada de alta calidad con resolución de 16k.
+Las discrepancias entre estas dos imágenes se retroalimentan a la red neuronal 
+para perfeccionar y optimizar sus resultados. \cite{ej-dlss2}
+
+Este ciclo se repite innumerables veces en una supercomputadora de Nvidia. 
+Una vez que el modelo produce imágenes de calidad satisfactoria, 
+se distribuye a los usuarios a través de actualizaciones de controladores 
+para sus tarjetas gráficas. \cite{ej-dlss2}
+
+En pocas palabras podemos decir que es un proceso iterativo de entrenamiento, 
+donde la historia de las imágenes y la retroalimentación constante impulsan 
+la mejora continua del modelo, que luego se implementa en las tarjetas gráficas 
+de los usuarios mediante actualizaciones de controladores. 
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{dlss.jpg}
+    \caption{Arquitectura de Nvidia DLSS 2.0 \cite{ej-dlss2}}
+    \label{fig:dlss}
+\end{figure}
+
 \subsection{Ejemplo5}
 \section{Conclusion}
 
