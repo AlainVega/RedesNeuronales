@@ -30,23 +30,17 @@
 % =================================================================================
 \title{Redes neuronales y sus aplicaciones recientes}
 
-%\titlerunning{Abbreviated paper title}
-% If the paper title is too long for the running head, you can set
-% an abbreviated paper title here
-%
 \author{Alain Vega \\ \email{alainjosevz@gmail.com}}
-%
+
 \authorrunning{Alain Vega}
-% First names are abbreviated in the running head.
-% If there are more than two authors, 'et al.' is used.
-%
+
 \institute{Universidad Catolica "Nuestra señora de la Asuncion" \\ 
 Facultad de ciencias y tecnologia \\
 Departamento de electronica e informatica \\
 \url{https://www.universidadcatolica.edu.py/} }
-%
-\maketitle              % typeset the header of the contribution
-%
+
+\maketitle           
+
 \begin{abstract}
 Una de las tendencias ultimamente son las redes neuronales. En este documento
 se muestran conceptos claves sobre este modelo y una significativa variedad
@@ -306,7 +300,8 @@ mayores niveles de comprensión. \cite{NNvsANN}
 \newpage
 \section{Aplicaciones}
 \subsection{ChatGPT}
-Es una de las aplicaciones recientes mas reconocidas, ya casi no necesita presentacion.
+Es una de las aplicaciones recientes mas reconocidas, ya casi no necesita presentacion
+seguramente el lector ya conoce esta poderosa y util herramienta por expriencia propia.
 Su exito fue tan grande que empresas como Google o Microsoft apresuraron sus proyectos
 \textit{Bard} y \textit{Bing} respectivamente.
 
@@ -314,6 +309,11 @@ ChatGPT (\textit{Generative Pre-trained Transformer}) es un procesador del lengu
 desarrollada por OpenAI, es un modelo hermano de InstructGPT, que esta capacitado
 para seguir una instruccion en un mensaje y proporcionar una respuesta detallada.
 \cite{ej-chatgpt}
+
+El formato de diálogo hace posible que ChatGPT responda preguntas de seguimiento, 
+admita sus errores, cuestione premisas incorrectas y rechace solicitudes inapropiadas.
+
+
 \subsubsection{¿Como funciona?}
 Se entrena el modelo utilizando \textit{Reinforcement Learning from Human Feedback}, 
 (RLHF) es decir el aprendizaje por refuerzo a partir de la retroalimentacion humana,
@@ -372,7 +372,17 @@ esta revolucion de generar imagenes, junto a otras como \textit{Stable Diffusion
 y \textit{MidJourney}. \cite{dalle-xtaka}
 
 DALL-E es un sistema de AI que tiene la capacidad de crear imagenes realistas y arte
-dada una descripcion en lenguaje natural. \cite{ej-dalle}
+dada una descripcion en lenguaje natural. ya que ha sido entrenada para distinguir 
+las fórmulas que utilizamos al expresarnos y querer pedir o preguntar algo. \cite{ej-dalle}
+
+Además de esto, DALL-E ha sido entrenada también mediante una gigantesca 
+biblioteca de obras de arte y fotografías. Gracias a esto, 
+cuando le pides que dibuje a una celebridad, DALL-E sabrá a quién te refieres, 
+y dibujará el aspecto que tiene esta persona realizando una acción que también 
+sabrá interpretar y dibujar. \cite{dalle-xtaka}
+
+Además de esto, este sistema de inteligencia artificial es también capaz de combinar
+conceptos, estilos y atributos para una imagen. 
 
 \subsubsection{¿Como funciona?}
 DALL-E fue creada al entrenar una red neuronal con imagenes y su descripcion en lenguaje
@@ -452,6 +462,20 @@ espectador humano.
 Esta técnica se llama
 \textquotedblleft{}red generativa adversarial\textquotedblright{} (GAN). \cite{ej-deepfake2}
 
+\textquotedblleft{}Un modelo generativo G que captura la distribución de los datos, 
+y un modelo discriminativo D que estima la probabilidad de que una muestra 
+provenga de los datos de entrenamiento y no de G. 
+El procedimiento de entrenamiento de G es maximizar la probabilidad de que D se equivoque.
+\textquotedblright{}
+\cite{ej-deepfake4}
+
+
+Los GAN son una tecnología pionera en el campo de la visualización por computadora 
+y tienen mucho éxito a la hora de generar imágenes que se parecen a las humanas.
+El principal reto de la tecnología solía ser la disponibilidad de datos de entrenamiento 
+para una persona determinada. Por eso, al disponer de muchos datos, 
+los deepfakes de famosos fueron muy populares al principio.
+
 \subsubsection{Tipos de deepfake}
 Hay tres tipos principales de tecnología deepfake \cite{ej-deepfake2}
 \begin{itemize}
@@ -507,6 +531,13 @@ parece estar ejecutándose a una resolución más alta.
 La idea es hacer que los juegos renderizados a 1440p parezcan 
 ejecutarse en 4K o que los juegos a 1080p parezcan 1440p. \cite{ej-dlss}
 
+Es necesario aclarar que para utilizar el DLSS necesitamos hardware específico
+de nvidia, las graficas RTX series 2000 (para DLSS1) series 3000 (para DLSS2)
+series 4000 (para DLSS3)
+
+El exito de DLSS hizo que AMD y luego Intel se apresuren en competir, con sus tecnologías
+FSR y XeSS respectivamente.
+
 \subsubsection{¿Como funciona?}
 La NN recibe dos entradas: 
 \begin{itemize}
@@ -549,8 +580,8 @@ A continuacion van ejemplos que muestran el impacto de dlss3 en los fps.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.2]{ej1-dlss3.jpg}
-    \includegraphics[scale=0.427]{ej2-dlss3.jpg}
+    \includegraphics[scale=0.15]{ej1-dlss3.jpg}
+    \includegraphics[scale=0.32]{ej2-dlss3.jpg}
     \caption{Impacto de DLSS3 en los juegos Cyberpunk 2077 y 
     Microsoft flight simulator \cite{img1-dlss3}}
     \label{fig:ej1-dlss3}
@@ -558,6 +589,18 @@ A continuacion van ejemplos que muestran el impacto de dlss3 en los fps.
 \newpage
 
 \subsection{SAM}
+La segmentación de imágenes es un método que divide una imagen digital 
+en subgrupos (segmentos) para reducir la complejidad de esta y, así, 
+poder facilitar su procesamiento o análisis. La finalidad de la segmentación 
+es asignar etiquetas a píxeles para identificar objetos, personas u otros 
+elementos en la imagen. 
+
+La segmentación de las imágenes es clave para las tecnologías y 
+algoritmos de visión artificial, pero también se utiliza hoy en día para 
+muchas aplicaciones como, por ejemplo, el análisis de imágenes médicas, 
+la visión de los vehículos autónomos, el reconocimiento y la detección de 
+rostros o el análisis de imágenes satelitales, entre otras. \cite{ej3-SAM}
+
 SAM (\textit{Segment Anything Model}) \textquotedblleft{}las tijeras mas
 potentes de la Inteligencia artificial\textquotedblright{} es un modelo
 \textit{open source} desarrollado por META.
@@ -570,6 +613,11 @@ modelos de segmentacion donde de antemano el modelo ya sabe que segmentar (como
 un problema de aprendizaje supervisado) SAM es capaz de generalizar la nocion de
 objeto, es capaz de desplegar sus habilidades en contextos que nunca a visto durante
 su entrenamiento (\textit{zero-shot learning}) \cite{ej-SAM}
+
+SAM es un modelo flexible que fue entrenado con el conjunto de datos más grande
+hasta la fecha, llamado SA-1B y que cuenta con 11 millones de imágenes y 1.1 mil millones 
+de máscaras en segmentación. Gracias a estos datos, SAM es capaz de detectar todo tipo de 
+objetos sin necesidad de un entrenamiento adicional. \cite{ej3-SAM}
 
 \begin{figure}
     \centering
@@ -593,8 +641,46 @@ lo que proporciona una amplia cobertura de UniProt
 (el repositorio estándar de secuencias y anotaciones de proteínas). 
 \cite{ej-alphafold}
 
-\section{Conclusion}
+El alcance de AlphaFold es enorme, hasta tal punto que Pushmeet Kohli, 
+director de IA de DeepMind, considera que se trata de la 
+\textquotedblleft{}mayor contribución de la IA al conocimiento científico hasta la fecha
+\textquotedblright{}. \cite{ej-alphafold2}
 
+Hasta ahora, entender la compleja estructura de cada proteína requería 
+largos y tediosos experimentos para comprobar su forma final y poder diseñar 
+medicamentos específicos. Ahora, ese trabajo lo realiza la IA con una precisión altísima.
+La velocidad con la que la IA es capaz de entender la estructura de las proteínas 
+es muchísimo más rápida de lo que los humanos podemos hacer manualmente. 
+Para equiparar el trabajo de AlphaFold, los humanos sin esta tecnología habríamos 
+tardado miles de años. \cite{ej-alphafold2}
+
+\textquotedblleft{}Determinar la estructura 3D de una proteína solía tardar muchos meses o años, 
+ahora toma segundos. Con esta nueva adición de estructuras que describen casi 
+todo el universo de proteínas, podemos esperar que se resuelvan más misterios 
+biológicos cada día\textquotedblright{}, ha descrito Eric Topol, director del Scripps Research, 
+uno de los centros biomédicos más prestigiosos del mundo. \cite{ej-alphafold2}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{ej1-alphafold}
+    \caption{Q8W3K0: Una proteína potencial de resistencia a enfermedades de las plantas. 
+    PLDDT medio 82,24. \cite{ej-alphafold}}
+    \label{fig:ej-alphafold}
+\end{figure}
+
+\newpage
+\section{Conclusion}
+Es evidente que las redes neuronales son una herramienta poderosa, se destaca 
+la prominente influencia de estas herramientas en diversos campos. 
+Desde la capacidad para aprender patrones complejos  hasta su aplicación en áreas 
+como visión por computadora, procesamiento de lenguaje natural, medicina, etc.
+Queda en evidencia su versatilidad y potencial transformador.
+
+El continuo avance en la investigación y desarrollo promete aún más innovaciones y 
+descubrimientos en el futuro. Estos avances no solo mejorarán la eficiencia y precisión 
+de las aplicaciones existentes, sino que también abrirán nuevas oportunidades 
+en áreas emergentes.
 \newpage
 % =================================================================================
 % Bibliografia
